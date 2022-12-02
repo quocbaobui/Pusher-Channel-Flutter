@@ -60,10 +60,6 @@ app.post("/api/pusher/auth-channel", (req, res) => {
   res.send(authResponse);
 });
 
-app.get('/api/pusher/auth',async (req, res)  => {
-  res.json({"message" : "success"});
-});
-
 app.post('/api/pusher/trigger',async (req, res)  => {
 
   const channel = req.body.channel;
@@ -81,16 +77,6 @@ app.post('/api/pusher/trigger',async (req, res)  => {
 });
 
 
-app.post('/api/pusher/private-channel',async (req, res)  => {
-  
-  pusher.trigger(_privateChannel, _privateEvent, {
-      serviceName: req.body.serviceName,
-      price: req.body.price,
-      quantity:req.body.quantity
-    });
-    res.json({"message" : "success"});
-
-});
 
 app.listen(port, () => {
     console.log('App listening on port ${port}')
