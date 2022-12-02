@@ -22,35 +22,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 
-
-// authorize users for a presence channel.
-// app.post("/api/pusher/auth-user", (req, res) => {
-//   const socketId = req.body.socket_id;
-//   const channel = req.body.channel_name;
-//   const userName = req.body.user_name;
-//   const pusherId = userName + "_1234"
-
-//   console.log("socketId :  " + socketId.toString());
-//   console.log("channel :  " + channel.toString());
-//   console.log("userName : " + userName.toString());
-//   console.log("pusherId : " + pusherId.toString());
-
-//   const user = {
-//     id: pusherId,
-//     user_info: {
-//       name: userName
-//     },
-//     watchlist: [channel]
-//   };
-
-//   const authResponseUser =  pusher.authenticateUser(socketId, user);
-//   console.log("authResponseUser :");
-//   console.log(authResponseUser);  
-//   res.send(authResponseUser);
-// });
-
-
-
 app.post("/api/pusher/auth-channel", (req, res) => {
   const socketId = req.body.socket_id;
   const channel = req.body.channel_name;
