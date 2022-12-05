@@ -32,16 +32,9 @@ app.post("/api/pusher/auth-channel", (req, res) => {
 });
 
 app.post('/api/pusher/trigger',async (req, res)  => {
-
   const channel = req.body.channel;
   const event = req.body.event;
   const data = req.body.data;
-
-  console.log("req: " + req);
-  console.log("channel: " + channel);
-  console.log("event: " + event);
-  console.log("data: " + data);
-
   pusher.trigger(channel, event, data);
   res.json({"message" : "success"});
 
